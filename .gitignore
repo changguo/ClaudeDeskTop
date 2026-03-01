@@ -52,4 +52,4 @@ next-env.d.ts
 /test-results/
 
 # user uploads (runtime data)
-.codepilot-uploads/
+.claudecodedesktop-uploads/

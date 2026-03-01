@@ -19,8 +19,8 @@ import { SplitChatContainer } from "./SplitChatContainer";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { getActiveSessionIds, getSnapshot } from "@/lib/stream-session-manager";
 
-const SPLIT_SESSIONS_KEY = "codepilot:split-sessions";
-const SPLIT_ACTIVE_COLUMN_KEY = "codepilot:split-active-column";
+const SPLIT_SESSIONS_KEY = "claudecodedesktop:split-sessions";
+const SPLIT_ACTIVE_COLUMN_KEY = "claudecodedesktop:split-active-column";
 
 function loadSplitSessions(): SplitSession[] {
   if (typeof window === "undefined") return [];
@@ -66,7 +66,7 @@ function defaultViewMode(filePath: string): PreviewViewMode {
 
 const LG_BREAKPOINT = 1024;
 const CHECK_INTERVAL = 8 * 60 * 60 * 1000; // 8 hours
-const DISMISSED_VERSION_KEY = "codepilot_dismissed_update_version";
+const DISMISSED_VERSION_KEY = "claudecodedesktop_dismissed_update_version";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -77,11 +77,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   // Panel width state with localStorage persistence
   const [chatListWidth, setChatListWidth] = useState(() => {
     if (typeof window === "undefined") return 240;
-    return parseInt(localStorage.getItem("codepilot_chatlist_width") || "240");
+    return parseInt(localStorage.getItem("claudecodedesktop_chatlist_width") || "240");
   });
   const [rightPanelWidth, setRightPanelWidth] = useState(() => {
     if (typeof window === "undefined") return 288;
-    return parseInt(localStorage.getItem("codepilot_rightpanel_width") || "288");
+    return parseInt(localStorage.getItem("claudecodedesktop_rightpanel_width") || "288");
   });
 
   const handleChatListResize = useCallback((delta: number) => {
@@ -89,7 +89,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
   const handleChatListResizeEnd = useCallback(() => {
     setChatListWidth((w) => {
-      localStorage.setItem("codepilot_chatlist_width", String(w));
+      localStorage.setItem("claudecodedesktop_chatlist_width", String(w));
       return w;
     });
   }, []);
@@ -99,7 +99,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
   const handleRightPanelResizeEnd = useCallback(() => {
     setRightPanelWidth((w) => {
-      localStorage.setItem("codepilot_rightpanel_width", String(w));
+      localStorage.setItem("claudecodedesktop_rightpanel_width", String(w));
       return w;
     });
   }, []);
@@ -291,7 +291,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [previewViewMode, setPreviewViewMode] = useState<PreviewViewMode>("source");
   const [docPreviewWidth, setDocPreviewWidth] = useState(() => {
     if (typeof window === "undefined") return 480;
-    return parseInt(localStorage.getItem("codepilot_docpreview_width") || "480");
+    return parseInt(localStorage.getItem("claudecodedesktop_docpreview_width") || "480");
   });
 
   const setPreviewFile = useCallback((path: string | null) => {
@@ -306,7 +306,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
   const handleDocPreviewResizeEnd = useCallback(() => {
     setDocPreviewWidth((w) => {
-      localStorage.setItem("codepilot_docpreview_width", String(w));
+      localStorage.setItem("claudecodedesktop_docpreview_width", String(w));
       return w;
     });
   }, []);

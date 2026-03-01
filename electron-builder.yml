@@ -1,9 +1,9 @@
-appId: com.codepilot.app
-productName: CodePilot
+appId: com.claudecodedesktop.app
+productName: ClaudeCodeDeskTop
 publish:
   provider: github
-  owner: op7418
-  repo: CodePilot
+  owner: changguo
+  repo: ClaudeDeskTop
 directories:
   output: release
 files:
@@ -71,10 +71,10 @@ linux:
   artifactName: "${productName}-${version}-${arch}.${ext}"
   desktop:
     entry:
-      Name: CodePilot
+      Name: ClaudeCodeDeskTop
       Comment: A native desktop GUI for Claude Code
       Categories: Development;IDE;
-      StartupWMClass: codepilot
+      StartupWMClass: claudecodedesktop
   target:
     - target: AppImage
       arch: [x64, arm64]

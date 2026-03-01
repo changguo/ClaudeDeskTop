@@ -55,11 +55,11 @@ const zh: Record<TranslationKey, string> = {
 
   // ── Settings: General ───────────────────────────────────────
   'settings.title': '设置',
-  'settings.description': '管理 CodePilot 和 Claude CLI 设置',
+  'settings.description': '管理 ClaudeCodeDeskTop 和 Claude CLI 设置',
   'settings.general': '通用',
   'settings.providers': '服务商',
   'settings.claudeCli': 'Claude CLI',
-  'settings.codepilot': 'CodePilot',
+  'settings.claudecodedesktop': 'ClaudeCodeDeskTop',
   'settings.version': '版本 {version}',
   'settings.checkForUpdates': '检查更新',
   'settings.checking': '检查中...',
@@ -144,7 +144,7 @@ const zh: Record<TranslationKey, string> = {
   'provider.disconnecting': '断开中...',
   'provider.disconnectProvider': '断开提供商',
   'provider.disconnectConfirm': '确定要断开"{name}"吗？此操作无法撤销。',
-  'provider.ccSwitchHint': '通过类似 cc switch 等工具添加的 Claude Code 配置可能无法被 CodePilot 读取，建议在此处重新添加。',
+  'provider.ccSwitchHint': '通过类似 cc switch 等工具添加的 Claude Code 配置可能无法被 ClaudeCodeDeskTop 读取，建议在此处重新添加。',
   'provider.addProviderSection': '添加提供商',
   'provider.addProviderDesc': '选择要连接的提供商。大多数预设只需填写 API 密钥。',
 
@@ -333,7 +333,7 @@ const zh: Record<TranslationKey, string> = {
   'update.downloading': '下载中',
   'update.restartToUpdate': '重启以更新',
   'update.restartNow': '立即重启',
-  'update.readyToInstall': 'CodePilot v{version} 已就绪 — 重启以完成更新',
+  'update.readyToInstall': 'ClaudeCodeDeskTop v{version} 已就绪 — 重启以完成更新',
   'update.installUpdate': '下载并安装',
   'update.later': '稍后',
 

@@ -32,8 +32,8 @@ export function ChatView({ sessionId, initialMessages = [], initialHasMore = fal
   const [loadingMore, setLoadingMore] = useState(false);
   const loadingMoreRef = useRef(false);
   const [mode, setMode] = useState(initialMode || 'code');
-  const [currentModel, setCurrentModel] = useState(modelName || (typeof window !== 'undefined' ? localStorage.getItem('codepilot:last-model') : null) || 'sonnet');
-  const [currentProviderId, setCurrentProviderId] = useState(providerId || (typeof window !== 'undefined' ? localStorage.getItem('codepilot:last-provider-id') : null) || '');
+  const [currentModel, setCurrentModel] = useState(modelName || (typeof window !== 'undefined' ? localStorage.getItem('claudecodedesktop:last-model') : null) || 'sonnet');
+  const [currentProviderId, setCurrentProviderId] = useState(providerId || (typeof window !== 'undefined' ? localStorage.getItem('claudecodedesktop:last-provider-id') : null) || '');
 
   // Stream snapshot from the manager — drives all streaming UI
   const [streamSnapshot, setStreamSnapshot] = useState<SessionStreamSnapshot | null>(

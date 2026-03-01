@@ -11,7 +11,7 @@ import {
 } from '@/components/ai-elements/conversation';
 import { MessageItem } from './MessageItem';
 import { StreamingMessage } from './StreamingMessage';
-import { CodePilotLogo } from './CodePilotLogo';
+import { ClaudeCodeDeskTopLogo } from './ClaudeCodeDeskTopLogo';
 
 interface ToolUseInfo {
   id: string;
@@ -89,7 +89,7 @@ export function MessageList({
         <ConversationEmptyState
           title="Claude Chat"
           description={t('messageList.emptyDescription')}
-          icon={<CodePilotLogo className="h-16 w-16" />}
+          icon={<ClaudeCodeDeskTopLogo className="h-16 w-16" />}
         />
       </div>
     );

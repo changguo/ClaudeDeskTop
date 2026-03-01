@@ -198,7 +198,7 @@ function extractTokenUsage(msg: SDKResultMessage): TokenUsage | null {
 /**
  * Get file paths for non-image attachments. If the file already has a
  * persisted filePath (written by the uploads route), reuse it. Otherwise
- * fall back to writing the file to .codepilot-uploads/.
+ * fall back to writing the file to .claudecodedesktop-uploads/.
  */
 function getUploadedFilePaths(files: FileAttachment[], workDir: string): string[] {
   const paths: string[] = [];
@@ -209,7 +209,7 @@ function getUploadedFilePaths(files: FileAttachment[], workDir: string): string[
     } else {
       // Fallback: write file to disk (should not happen in normal flow)
       if (!uploadDir) {
-        uploadDir = path.join(workDir, '.codepilot-uploads');
+        uploadDir = path.join(workDir, '.claudecodedesktop-uploads');
         if (!fs.existsSync(uploadDir)) {
           fs.mkdirSync(uploadDir, { recursive: true });
         }
@@ -290,7 +290,7 @@ export function streamClaude(options: ClaudeStreamOptions): ReadableStream<strin
       try {
         // Build env for the Claude Code subprocess.
         // Start with process.env (includes user shell env from Electron's loadUserShellEnv).
-        // Then overlay any API config the user set in CodePilot settings (optional).
+        // Then overlay any API config the user set in ClaudeCodeDeskTop settings (optional).
         const sdkEnv: Record<string, string> = { ...process.env as Record<string, string> };
 
         // Ensure HOME/USERPROFILE are set so Claude Code can find ~/.claude/commands/
@@ -300,7 +300,7 @@ export function streamClaude(options: ClaudeStreamOptions): ReadableStream<strin
         sdkEnv.PATH = getExpandedPath();
 
         // Remove CLAUDECODE env var to prevent "nested session" detection.
-        // When CodePilot is launched from within a Claude Code CLI session
+        // When ClaudeCodeDeskTop is launched from within a Claude Code CLI session
         // (e.g. during development), the child process inherits this variable
         // and the SDK refuses to start.
         delete sdkEnv.CLAUDECODE;
@@ -376,7 +376,7 @@ export function streamClaude(options: ClaudeStreamOptions): ReadableStream<strin
           env: sanitizeEnv(sdkEnv),
           // Load settings so the SDK behaves like the CLI (tool permissions,
           // CLAUDE.md, etc.). When an active provider is configured in
-          // CodePilot, skip 'user' settings because ~/.claude/settings.json
+          // ClaudeCodeDeskTop, skip 'user' settings because ~/.claude/settings.json
           // may contain env overrides (ANTHROPIC_BASE_URL, ANTHROPIC_MODEL,
           // etc.) that would conflict with the provider's configuration.
           settingSources: activeProvider?.api_key
@@ -421,7 +421,7 @@ export function streamClaude(options: ClaudeStreamOptions): ReadableStream<strin
           };
         }
 
-        // MCP servers: only pass explicitly provided config (e.g. from CodePilot UI).
+        // MCP servers: only pass explicitly provided config (e.g. from ClaudeCodeDeskTop UI).
         // User-level MCP config from ~/.claude.json and ~/.claude/settings.json
         // is now automatically loaded by the SDK via settingSources: ['user', 'project', 'local'].
         if (mcpServers && Object.keys(mcpServers).length > 0) {

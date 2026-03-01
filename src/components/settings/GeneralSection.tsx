@@ -32,7 +32,7 @@ function UpdateCard() {
     <div className="rounded-lg border border-border/50 p-4 transition-shadow hover:shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-medium">{t('settings.codepilot')}</h2>
+          <h2 className="text-sm font-medium">{t('settings.claudecodedesktop')}</h2>
           <p className="text-xs text-muted-foreground">{t('settings.version', { version: currentVersion })}</p>
         </div>
         <div className="flex items-center gap-2">

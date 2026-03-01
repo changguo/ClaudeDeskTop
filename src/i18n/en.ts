@@ -58,11 +58,11 @@ const en = {
 
   // ── Settings: General ───────────────────────────────────────
   'settings.title': 'Settings',
-  'settings.description': 'Manage CodePilot and Claude CLI settings',
+  'settings.description': 'Manage ClaudeCodeDeskTop and Claude CLI settings',
   'settings.general': 'General',
   'settings.providers': 'Providers',
   'settings.claudeCli': 'Claude CLI',
-  'settings.codepilot': 'CodePilot',
+  'settings.claudecodedesktop': 'ClaudeCodeDeskTop',
   'settings.version': 'Version {version}',
   'settings.checkForUpdates': 'Check for Updates',
   'settings.checking': 'Checking...',
@@ -147,7 +147,7 @@ const en = {
   'provider.disconnecting': 'Disconnecting...',
   'provider.disconnectProvider': 'Disconnect Provider',
   'provider.disconnectConfirm': 'Are you sure you want to disconnect "{name}"? This action cannot be undone.',
-  'provider.ccSwitchHint': 'Claude Code configurations added via tools like cc switch may not be readable by CodePilot. We recommend re-adding your provider here.',
+  'provider.ccSwitchHint': 'Claude Code configurations added via tools like cc switch may not be readable by ClaudeCodeDeskTop. We recommend re-adding your provider here.',
   'provider.addProviderSection': 'Add Provider',
   'provider.addProviderDesc': 'Select a provider to connect. Most presets only require an API key.',
 
@@ -336,7 +336,7 @@ const en = {
   'update.downloading': 'Downloading',
   'update.restartToUpdate': 'Restart to Update',
   'update.restartNow': 'Restart Now',
-  'update.readyToInstall': 'CodePilot v{version} is ready — restart to update',
+  'update.readyToInstall': 'ClaudeCodeDeskTop v{version} is ready — restart to update',
   'update.installUpdate': 'Download & Install',
   'update.later': 'Later',
 

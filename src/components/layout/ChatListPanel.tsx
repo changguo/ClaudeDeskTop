@@ -54,8 +54,8 @@ function formatRelativeTime(dateStr: string, t: (key: import('@/i18n').Translati
   return date.toLocaleDateString();
 }
 
-const COLLAPSED_PROJECTS_KEY = "codepilot:collapsed-projects";
-const COLLAPSED_INITIALIZED_KEY = "codepilot:collapsed-initialized";
+const COLLAPSED_PROJECTS_KEY = "claudecodedesktop:collapsed-projects";
+const COLLAPSED_INITIALIZED_KEY = "claudecodedesktop:collapsed-initialized";
 
 function loadCollapsedProjects(): Set<string> {
   if (typeof window === 'undefined') return new Set();
@@ -159,7 +159,7 @@ export function ChatListPanel({ open, width }: ChatListPanelProps) {
 
   const handleNewChat = useCallback(async () => {
     const lastDir = workingDirectory
-      || (typeof window !== 'undefined' ? localStorage.getItem("codepilot:last-working-directory") : null);
+      || (typeof window !== 'undefined' ? localStorage.getItem("claudecodedesktop:last-working-directory") : null);
 
     if (!lastDir) {
       // No saved directory — let user pick one
@@ -175,7 +175,7 @@ export function ChatListPanel({ open, width }: ChatListPanelProps) {
       );
       if (!checkRes.ok) {
         // Directory is gone — clear stale value and prompt user
-        localStorage.removeItem("codepilot:last-working-directory");
+        localStorage.removeItem("claudecodedesktop:last-working-directory");
         openFolderPicker();
         return;
       }
@@ -183,11 +183,11 @@ export function ChatListPanel({ open, width }: ChatListPanelProps) {
       const res = await fetch("/api/chat/sessions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ working_directory: lastDir, model: localStorage.getItem('codepilot:last-model') || '' }),
+        body: JSON.stringify({ working_directory: lastDir, model: localStorage.getItem('claudecodedesktop:last-model') || '' }),
       });
       if (!res.ok) {
         // Backend rejected it (e.g. INVALID_DIRECTORY) — prompt user
-        localStorage.removeItem("codepilot:last-working-directory");
+        localStorage.removeItem("claudecodedesktop:last-working-directory");
         openFolderPicker();
         return;
       }

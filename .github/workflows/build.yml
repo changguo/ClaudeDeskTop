@@ -135,11 +135,11 @@ jobs:
           ## Downloads
 
           **Windows**
-          - **CodePilot Setup ${{ steps.meta.outputs.version }}.exe** — Windows installer (x64 + arm64)
+          - **ClaudeCodeDeskTop Setup ${{ steps.meta.outputs.version }}.exe** — Windows installer (x64 + arm64)
 
           **macOS**
-          - **CodePilot-${{ steps.meta.outputs.version }}-arm64.dmg** — macOS Apple Silicon (M1/M2/M3/M4)
-          - **CodePilot-${{ steps.meta.outputs.version }}-x64.dmg** — macOS Intel
+          - **ClaudeCodeDeskTop-${{ steps.meta.outputs.version }}-arm64.dmg** — macOS Apple Silicon (M1/M2/M3/M4)
+          - **ClaudeCodeDeskTop-${{ steps.meta.outputs.version }}-x64.dmg** — macOS Intel
 
           **Linux**
           - **AppImage / deb / rpm** — x64 and arm64
@@ -150,7 +150,7 @@ jobs:
 
           **macOS**:
           1. Download the DMG for your chip architecture
-          2. Open the DMG, drag CodePilot into Applications
+          2. Open the DMG, drag ClaudeCodeDeskTop into Applications
           3. If you see a security prompt on first launch, go to **System Settings > Privacy & Security** and click "Open Anyway"
           4. Configure your Anthropic API Key in Settings
 
@@ -176,7 +176,7 @@ jobs:
 
           # Update the draft release created by electron-builder with full notes
           gh release edit "${GITHUB_REF_NAME}" \
-            --title "CodePilot v${VERSION}" \
+            --title "ClaudeCodeDeskTop v${VERSION}" \
             --notes-file release-notes.md \
             --latest \
             --draft=false

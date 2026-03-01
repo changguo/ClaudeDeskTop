@@ -6,8 +6,8 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 
-const dataDir = process.env.CLAUDE_GUI_DATA_DIR || path.join(os.homedir(), '.codepilot');
-const MEDIA_DIR = path.join(dataDir, '.codepilot-media');
+const dataDir = process.env.CLAUDE_GUI_DATA_DIR || path.join(os.homedir(), '.claudecodedesktop');
+const MEDIA_DIR = path.join(dataDir, '.claudecodedesktop-media');
 
 export interface GenerateSingleImageParams {
   prompt: string;
@@ -110,7 +110,7 @@ export async function generateSingleImage(params: GenerateSingleImageParams): Pr
     try {
       const session = getSession(params.sessionId);
       if (session?.working_directory) {
-        const projectImgDir = path.join(session.working_directory, '.codepilot-images');
+        const projectImgDir = path.join(session.working_directory, '.claudecodedesktop-images');
         if (!fs.existsSync(projectImgDir)) {
           fs.mkdirSync(projectImgDir, { recursive: true });
         }

@@ -5,8 +5,8 @@ import fs from 'fs';
 import os from 'os';
 import type { ChatSession, Message, SettingsMap, TaskItem, TaskStatus, ApiProvider, CreateProviderRequest, UpdateProviderRequest, MediaJob, MediaJobStatus, MediaJobItem, MediaJobItemStatus, MediaContextEvent, BatchConfig } from '@/types';
 
-const dataDir = process.env.CLAUDE_GUI_DATA_DIR || path.join(os.homedir(), '.codepilot');
-const DB_PATH = path.join(dataDir, 'codepilot.db');
+const dataDir = process.env.CLAUDE_GUI_DATA_DIR || path.join(os.homedir(), '.claudecodedesktop');
+const DB_PATH = path.join(dataDir, 'claudecodedesktop.db');
 
 let db: Database.Database | null = null;
 
@@ -22,6 +22,9 @@ export function getDb(): Database.Database {
       const home = os.homedir();
       const oldPaths = [
         // Old Electron userData paths (app.getPath('userData'))
+        path.join(home, 'Library', 'Application Support', 'ClaudeCodeDeskTop', 'claudecodedesktop.db'),
+        path.join(home, 'Library', 'Application Support', 'claudecodedesktop', 'claudecodedesktop.db'),
+        // Migrated from CodePilot
         path.join(home, 'Library', 'Application Support', 'CodePilot', 'codepilot.db'),
         path.join(home, 'Library', 'Application Support', 'codepilot', 'codepilot.db'),
         path.join(home, 'Library', 'Application Support', 'Claude GUI', 'codepilot.db'),

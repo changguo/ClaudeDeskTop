@@ -93,7 +93,7 @@ export function SplitColumn({ sessionId, isActive, onClose, onFocus }: SplitColu
     if (!isActive) return;
     if (sessionWorkingDir) {
       setWorkingDirectory(sessionWorkingDir);
-      localStorage.setItem("codepilot:last-working-directory", sessionWorkingDir);
+      localStorage.setItem("claudecodedesktop:last-working-directory", sessionWorkingDir);
       window.dispatchEvent(new Event("refresh-file-tree"));
     }
     setSessionId(sessionId);

@@ -1161,8 +1161,8 @@ export function MessageInput({
                                   onClick={() => {
                                     onModelChange?.(opt.value);
                                     onProviderModelChange?.(group.provider_id, opt.value);
-                                    localStorage.setItem('codepilot:last-model', opt.value);
-                                    localStorage.setItem('codepilot:last-provider-id', group.provider_id);
+                                    localStorage.setItem('claudecodedesktop:last-model', opt.value);
+                                    localStorage.setItem('claudecodedesktop:last-provider-id', group.provider_id);
                                     setModelMenuOpen(false);
                                   }}
                                 >
