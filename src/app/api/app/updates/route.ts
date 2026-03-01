@@ -24,6 +24,18 @@ export async function GET() {
       }
     );
 
+    if (res.status === 404) {
+      return NextResponse.json({
+        latestVersion: currentVersion,
+        currentVersion,
+        updateAvailable: false,
+        releaseName: "",
+        releaseNotes: "",
+        publishedAt: "",
+        releaseUrl: "",
+      });
+    }
+
     if (!res.ok) {
       return NextResponse.json(
         { error: "Failed to fetch release info" },
