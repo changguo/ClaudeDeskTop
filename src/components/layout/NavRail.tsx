@@ -6,9 +6,9 @@ import { useTheme } from "next-themes";
 import { useCallback, useSyncExternalStore } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Message02Icon,
-  ZapIcon,
-  Plug01Icon,
+  BubbleChatSpark01Icon,
+  SparklesIcon,
+  CommandLineIcon,
   Image01Icon,
   Settings02Icon,
   Moon02Icon,
@@ -34,9 +34,9 @@ interface NavRailProps {
 }
 
 const navItems = [
-  { href: "/chat", label: "Chats", icon: Message02Icon },
-  { href: "/skills", label: "Skills", icon: ZapIcon },
-  { href: "/mcp", label: "MCP", icon: Plug01Icon },
+  { href: "/chat", label: "Chats", icon: BubbleChatSpark01Icon },
+  { href: "/skills", label: "Skills", icon: SparklesIcon },
+  { href: "/mcp", label: "MCP", icon: CommandLineIcon },
   { href: "/gallery", label: "Gallery", icon: Image01Icon },
   { href: "/settings", label: "Settings", icon: Settings02Icon },
 ] as const;

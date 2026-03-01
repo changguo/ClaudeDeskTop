@@ -423,10 +423,11 @@ app.whenReady().then(async () => {
     console.warn('Failed to check/clear version cache:', err);
   }
 
-  // Set macOS Dock icon
+  // Set macOS Dock icon (resize to 128x128 to match standard Dock icon size)
   if (process.platform === 'darwin' && app.dock) {
     const iconPath = getIconPath();
-    app.dock.setIcon(nativeImage.createFromPath(iconPath));
+    const icon = nativeImage.createFromPath(iconPath);
+    app.dock.setIcon(icon.resize({ width: 128, height: 128 }));
   }
 
   // --- Install wizard IPC handlers ---
